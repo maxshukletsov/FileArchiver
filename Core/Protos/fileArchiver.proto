@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Core";
+
+package archiver;
+
+service Archiver {
+  rpc CreateArchive (ArchiveRequest) returns (ArchiveReply);
+}
+message UserDocument {
+  string FileName = 1;
+  bytes File = 2;
+}
+
+message ArchiveRequest {
+  repeated UserDocument Document = 1;
+}
+
+message ArchiveReply {
+  bytes Archive = 1;
+}
